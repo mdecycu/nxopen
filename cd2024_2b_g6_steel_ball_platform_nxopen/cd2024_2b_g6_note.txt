@@ -1,0 +1,28 @@
+cd2024_2b_g6 note
+
+1. 加入下列程式段, 可以在測試 NXOpen Python 程式時, 免去手動關閉 NX session 中的同名檔案
+
+import NXOpen.UF
+
+# 處理 session 同名新增檔案
+# 取得 UF 工作階段物件，UF 是 NX 的底層框架，用於存取 NX 內部資料結構和函數
+theUfSession = NXOpen.UF.UFSession.GetUFSession()
+
+# 關閉所有開啟的零件，避免衝突
+theUfSession.Part.CloseAll() 
+
+2. 透過 os 模組的導入, 可以從下列程式段取得目前所在目錄字串, 讓各零件能順利透過組立程式取檔案
+
+import os
+
+current_directory = os.path.dirname(os.path.realpath(__file__))
+
+之後就可以直接透過 current_directory 取零件檔案
+
+basePart1, partLoadStatus1 = theSession.Parts.OpenBase(current_directory + "\\base_w.prt")
+
+如此無論組立程式與零件檔案在哪一個目錄, 理論上可以直接透過 NXOpen 的 Journal 執行.
+
+3. 假如 NXOpen 組立程式可以在完成組立後儲存組立檔案, 並且在過程將組立檔案轉為 STL, 則整個過程將可直接利用 Python_for_NX1872 的可攜程式環境執行 (表示可以取出零組件的設計參數, 轉為網際協同程式), 無需進入 NX 圖形介面.
+
+一旦取得所需的鋼球平衡台組立 STL 檔案, 又能自行根據各零件所在位置進行 STL 零件分割 (How?) 以及添加組成 CoppeliaSim (或其他模擬環境, 例如: Webots 或 ROS 相容套件) 場景中所需的連桿、驅動器、感測器等元件, 將可設法建立一個從 Siemens NX (或其他 MCAD, 例如: SolidWorks 或 Inventor) 直接根據機電設計模型轉進 CoppeliaSim 建立模擬場景的延伸套件.
