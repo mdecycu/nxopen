@@ -1,0 +1,16 @@
+@echo off
+set Disk=z
+subst %Disk%: "NX1872"
+
+set SPLM_LICENSE_SERVER=port@license_server
+set UGII_LANG=english
+set UGS_LICENSE_BUNDLE=ACD11,ACD10
+set UGII_BASE_DIR=%Disk%:\NX1872\
+set UGII_TMP_DIR=%Disk%:\NX1872\temp
+set UGII_LIB_PATH=%Disk%:\NX1872\NXBIN\python
+set ugii=%Disk%:\NX1872\ugii;%Disk%:\NX1872\nxbin;
+path = %ugii%;%path%
+
+Xcopy %Disk%:\NX1872_AppData C:\users\%USERNAME%\AppData\Local\Siemens\NX1872 /E /H /C /I /Y
+
+start ugraf -nx
