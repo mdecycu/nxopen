@@ -1410,7 +1410,11 @@ def main() :
     # ----------------------------------------------
     #   Menu: File->Save As...
     # ----------------------------------------------
-    partSaveStatus1 = workPart.SaveAs(current_directory + "\\base_w_center_pole")
+    prt_file_name = "base_w_center_pole"
+    if os.path.exists(prt_file_name + ".prt"):
+        # 若希望存檔的零件存在, 則先刪除該零件檔案
+        os.remove(prt_file_name + ".prt")
+    partSaveStatus1 = workPart.SaveAs(current_directory + "\\" + prt_file_name)
     
     partSaveStatus1.Dispose()
     
