@@ -1,4 +1,4 @@
-﻿# NX 1872
+# NX 1872 and NX2312
 #
 import math
 import NXOpen
@@ -1228,11 +1228,6 @@ def main() :
     point6 = NXOpen.Point3d(0.0, 96.686717981405309, float(height))
     sketchRapidDimensionBuilder2.FirstAssociativity.SetValue(perpendicularDimension1, workPart.ModelingViews.WorkView, point6)
     
-    line5 = theSession.ActiveSketch.FindObject("Curve DATUM1")
-    point1_5 = NXOpen.Point3d(0.0, 14.2875, float(height))
-    point2_5 = NXOpen.Point3d(0.0, 0.0, 0.0)
-    sketchRapidDimensionBuilder2.FirstAssociativity.SetValue(NXOpen.InferSnapType.SnapType.NotSet, line5, NXOpen.View.Null, point1_5, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_5)
-    
     point1_6 = NXOpen.Point3d(0.0, 0.0, 0.0)
     point2_6 = NXOpen.Point3d(0.0, 0.0, 0.0)
     sketchRapidDimensionBuilder2.SecondAssociativity.SetValue(NXOpen.InferSnapType.SnapType.NotSet, NXOpen.TaggedObject.Null, workPart.ModelingViews.WorkView, point1_6, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_6)
@@ -1250,9 +1245,6 @@ def main() :
     nXObject3 = convertToFromReferenceBuilder1.Commit()
     
     convertToFromReferenceBuilder1.Destroy()
-    
-    expression8 = workPart.Expressions.FindObject("p7")
-    expression8.SetFormula(str(center_pole_dist2))
     
     theSession.SetUndoMarkVisibility(markId11, None, NXOpen.Session.MarkVisibility.Visible)
     
