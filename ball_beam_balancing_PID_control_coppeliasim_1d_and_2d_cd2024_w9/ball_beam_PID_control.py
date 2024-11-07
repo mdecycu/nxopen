@@ -1,6 +1,7 @@
 # pip install pyzmq cbor keyboard
 # zmqRemoteApi_IPv6 為將 zmq 通訊協定修改為 IPv4 與 IPv6 相容
-from zmqRemoteApi_IPv6 import RemoteAPIClient
+# for 4.7.0 rev4
+from coppeliasim_zmqremoteapi_client import RemoteAPIClient
 import keyboard
 import time
 

@@ -1,0 +1,38 @@
+# Byte-compiled
+__pycache__/
+# for Replit, do not use the embedded venv Python
+venv/
+.pythonlibs
+config/config
+# LaTeX specific
+*.aux
+*.log
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.pdfsync
+*.toc
+*.out
+*.bbl
+*.blg
+*.lot
+*.lof
+*.nav
+*.snm
+*.vrb
+*.dvi
+*.xdv
+*.loa
+
+# Editors
+.vscode/
+*.swp
+*~
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# jupyterlab
+*.db
+.ipynb_checkpoints

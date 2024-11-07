@@ -1,6 +1,7 @@
 # 導入必要的模組
 import matplotlib.pyplot as plt
-from zmqRemoteApi_IPv6 import RemoteAPIClient
+# for 4.7.0 rev4
+from coppeliasim_zmqremoteapi_client import RemoteAPIClient
 import keyboard
 import os
 import random
