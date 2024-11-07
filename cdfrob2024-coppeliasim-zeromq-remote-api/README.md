@@ -57,4 +57,4 @@ python3 test_robot_sensors.py
 * add external parts of the arena
 * explain how to add video camera and LIDAR sensors in the tutorial
  
-
+http://web.archive.org/web/20240301183325/https://www.coupederobotique.fr/edition-2024/le-concours/reglement-2024/
